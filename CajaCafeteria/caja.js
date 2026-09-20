@@ -1,81 +1,55 @@
-function listarPedidos() {
+let pedidos = [];
+let totalAcumulado = 0;
 
-    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+function cargarPedidos() {
+    pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+}
 
-    let lista = document.getElementById("listaPedidos");
+function mostrarPedidos() {
+    cargarPedidos();
 
-    lista.innerHTML = "";
+    let texto = "";
+    totalAcumulado = 0;
 
-    for (let i = 0; i < pedidos.length; i++) {
+    pedidos.forEach(function(pedido) {
+        let boton = "";
 
-        let productos = "";
-
-        for (let j = 0; j < pedidos[i].productos.length; j++) {
-
-            productos +=
-                "<li>" +
-                pedidos[i].productos[j].nombre +
-                "</li>";
+        if (pedido.estado == "Esperando pago") {
+            boton = `<button onclick="cobrarPedido(${pedido.id})">Cobrar</button>`;
         }
 
-        lista.innerHTML +=
-            "<div class='pedido'>" +
+        if (pedido.estado != "Esperando pago") {
+            totalAcumulado += pedido.total;
+        }
 
-            "<h3>Pedido #" + pedidos[i].id + "</h3>" +
+        texto += `
+            <div class="pedido">
+                <p>Pedido ${pedido.id}</p>
+                <p>Total: $${pedido.total}</p>
+                <p>Estado: ${pedido.estado}</p>
+                ${boton}
+            </div>
+        `;
+    });
 
-            "<ul>" +
-            productos +
-            "</ul>" +
-
-            "<p>Total: $" +
-            pedidos[i].total +
-            "</p>" +
-
-            "<p>Estado: " +
-            pedidos[i].estado +
-            "</p>" +
-
-            botonCobrar(i, pedidos[i].estado) +
-
-            "</div>";
-    }
+    document.getElementById("pedidos").innerHTML = texto;
+    document.getElementById("total").innerText = `Total: $${totalAcumulado}`;
 }
 
+function cobrarPedido(id) {
+    cargarPedidos();
 
+    let pedido = pedidos.find(function(pedido) {
+        return pedido.id == id;
+    });
 
-
-function botonCobrar(posicion, estado) {
-
-    if (estado == "Listo") {
-
-        return "<button onclick='cobrarPedido(" +
-            posicion +
-            ")'>Cobrar</button>";
-    }
-
-    if (estado == "Pagado") {
-
-        return "<p>Pedido pagado</p>";
-    }
-
-    return "<p>Esperando a cocina...</p>";
-}
-
-
-
-
-function cobrarPedido(posicion) {
-
-    let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
-
-    pedidos[posicion].estado = "Pagado";
+    pedido.estado = "En cocina";
 
     localStorage.setItem("pedidos", JSON.stringify(pedidos));
 
-    alert("Pedido cobrado");
+    alert("Pedido enviado a cocina");
 
-    listarPedidos();
+    mostrarPedidos();
 }
 
-
-listarPedidos();
+mostrarPedidos();

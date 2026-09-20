@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Caja</title>
-    <link rel="stylesheet" href="caja.css">
+    <link rel="stylesheet" href="Caja.css">
 </head>
 <body>
 
-    <h1>Cafetería - Caja</h1>
+    <h1>Caja</h1>
 
-    <h2>Pedidos</h2>
+    <h2>Lista de pedidos</h2>
 
-    <button onclick="listarPedidos()">Actualizar pedidos</button>
+    <button onclick="mostrarPedidos()">Actualizar</button>
 
-    <div id="listaPedidos"></div>
+    <div id="pedidos"></div>
 
-    <script src="caja.js"></script>
+    <h2>Total acumulado</h2>
+    <p id="total">Total: $0</p>
 
+    <script src="Caja.js"></script>
 </body>
 </html>
