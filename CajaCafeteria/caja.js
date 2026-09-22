@@ -9,28 +9,10 @@ function mostrarPedidos() {
     cargarPedidos();
 
     let texto = "";
-    totalAcumulado = 0;
-
-    pedidos.forEach(function(pedido) {
-        let boton = "";
-
-        if (pedido.estado == "Esperando pago") {
-            boton = `<button onclick="cobrarPedido(${pedido.id})">Cobrar</button>`;
-        }
-
-        if (pedido.estado != "Esperando pago") {
-            totalAcumulado += pedido.total;
-        }
-
-        texto += `
-            <div class="pedido">
-                <p>Pedido ${pedido.id}</p>
-                <p>Total: $${pedido.total}</p>
-                <p>Estado: ${pedido.estado}</p>
-                ${boton}
-            </div>
-        `;
-    });
+    
+   const total = pedidos
+        .filter(pedido => pedido.estado !== "Esperando pago")
+        .reduce((acumulado, pedido) => acumulado + pedido.total, 0);
 
     document.getElementById("pedidos").innerHTML = texto;
     document.getElementById("total").innerText = `Total: $${totalAcumulado}`;
