@@ -9,6 +9,12 @@ function cargarPedidos() {
         pedidos = JSON.parse(datos);
     }
 }
+function notificarPedidoListo(id) {
+    alert("El pedido " + id + " está listo");
+}
+function notificarPedidoCancelado(id) {
+    alert("El pedido " + id + " fue cancelado");
+}
 
 
 // Mostrar los pedidos en Caja
