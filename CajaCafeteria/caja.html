@@ -1,25 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Caja</title>
     <link rel="stylesheet" href="Caja.css">
 </head>
+
 <body>
 
     <h1>Caja</h1>
 
+
+    <h2>Gestión de productos</h2>
+
+    <input
+        type="text"
+        id="nombre"
+        placeholder="Nombre">
+
+    <input
+        type="number"
+        id="precio"
+        placeholder="Precio">
+
+    <select id="tipo">
+
+        <option value="Bebida">
+            Bebida
+        </option>
+
+        <option value="Comida">
+            Comida
+        </option>
+
+        <option value="Postre">
+            Postre
+        </option>
+
+    </select>
+
+    <button onclick="agregarProducto()">
+        Agregar producto
+    </button>
+
+
+    <div id="productos"></div>
+
+
     <h2>Lista de pedidos</h2>
 
-    <button onclick="mostrarPedidos()">Actualizar</button>
+    <button onclick="listarPedidos()">
+        Actualizar pedidos
+    </button>
 
     <div id="pedidos"></div>
 
+
     <h2>Total acumulado</h2>
-    <p id="subtotal">Subtotal: $0</p>
-    <p id="iva">IVA (16%): $0</p>
-    <p id="total">Total: $0</p>
+
+    <p id="totalAcumulado">
+        Total: $0
+    </p>
+
 
     <script src="Caja.js"></script>
+
 </body>
+
 </html>
