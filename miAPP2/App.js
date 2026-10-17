@@ -11,19 +11,14 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <Text>Hola Mundo RN!</Text>
-      <Image source={require("./assets/wave.png")}></Image>
-      <Text>------------------------------------------</Text>
 
-      <Saludo></Saludo>
-      <Saludo/>
-      <Text>------------------------------------------</Text>
+    <Perfil nombre="Leonardo" materia="Movil" carrera="TIID" cuatrimestre="4to"/>
 
-      <Saludo2></Saludo2>
-      <Saludo2/>
+      
+    <Perfil nombre="Carlos" materia="Movil" carrera="TIID" cuatrimestre="4to"/>
 
-      <Perfil></Perfil>
-      <Perfil/>
+
+    <Perfil nombre="Aaron" materia="Movil" carrera="TIID" cuatrimestre="4to"/>
 
 
 
