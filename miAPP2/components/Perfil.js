@@ -41,7 +41,7 @@ const estilos= StyleSheet.create({
         fontSize:12,
         fontFamily:'Courier',
         fontStyle:'italic',
-        color:'#0b4800',
+        color:'#8cec7b',
     },
     tarjeta:{
 
