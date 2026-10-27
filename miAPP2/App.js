@@ -2,13 +2,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import MenuScreen from './screens/MenuScreen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 
 /* 2. Zona Main */
 export default function App() {
   return (
+  <SafeAreaProvider>
     <MenuScreen/>
+  </SafeAreaProvider>
+    
   );
 }
 
