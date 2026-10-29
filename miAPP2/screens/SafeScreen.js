@@ -61,7 +61,7 @@ box:{
     borderRadius:8,
     elevation:3,
     
-    
+
 }
 
 });
