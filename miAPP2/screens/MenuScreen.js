@@ -6,9 +6,10 @@ import Tarjetas from './Tarjetas';
 import SafeScreen from './SafeScreen';
 import Pressable from './Pressable';
 import TextInput from './TextInput';
-import FlatList from './FlatList';
-import ImageBackground from './ImageBackground';
+import FlatListScreen from './FlatListScreen';
+import ImageBackgroundScreen from './ImageBackgroundScreen';
 import ActivityIndicator from './ActivityIndicator';
+
 
 
 
@@ -27,9 +28,9 @@ export default function MenuScreen() {
         case 'textInput':
             return <TextInput />
         case 'flatList':
-            return <FlatList />
+            return <FlatListScreen />
         case 'imageBackground':
-            return <ImageBackground />
+            return <ImageBackgroundScreen />
         case 'modal':
             return <Modal />
         case 'activityIndicator':
