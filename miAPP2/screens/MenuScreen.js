@@ -9,6 +9,7 @@ import TextInput from './TextInput';
 import FlatListScreen from './FlatListScreen';
 import ImageBackgroundScreen from './ImageBackgroundScreen';
 import ActivityIndicator from './ActivityIndicator';
+import ModalScreen from './ModalScreen';
 
 
 
@@ -32,7 +33,7 @@ export default function MenuScreen() {
         case 'imageBackground':
             return <ImageBackgroundScreen />
         case 'modal':
-            return <Modal />
+            return <ModalScreen />
         case 'activityIndicator':
             return <ActivityIndicator />
 
